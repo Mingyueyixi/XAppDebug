@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">XAppDebug (Debug)</string>
+    <string name="app_name">XAppDebug</string>
     <string name="app_xposed_description">你想debug哪个app就debug哪个app！</string>
 
     <string name="title_activity_main">@string/app_name</string>
