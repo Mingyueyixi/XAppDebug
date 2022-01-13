@@ -14,6 +14,22 @@ android {
     compileSdkVersion 31
     buildToolsVersion "30.0.2"
 
+    signingConfigs {
+        debugConfig {
+            storeFile file("${rootProject.projectDir}/app-sigin.jks")
+            storePassword "123456"
+            keyAlias "debug"
+            keyPassword "123456"
+        }
+
+        releaseConfig {
+            storeFile file("${rootProject.projectDir}/app-sigin.jks")
+            storePassword "123456"
+            keyAlias "debug"
+            keyPassword "123456"
+        }
+    }
+
     defaultConfig {
         applicationId "tw.idv.palatis.xappdebug"
         minSdkVersion 24
@@ -27,14 +43,15 @@ android {
 
     buildTypes {
         debug {
+            signingConfig signingConfigs.debugConfig
             applicationIdSuffix ".debug"
             versionNameSuffix "-dbg"
         }
         release {
-            signingConfig signingConfigs.release
+            signingConfig signingConfigs.releaseConfig
             aaptOptions.cruncherEnabled = true
-            shrinkResources true
-            minifyEnabled true
+            shrinkResources false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
